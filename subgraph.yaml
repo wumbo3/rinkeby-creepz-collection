@@ -71,7 +71,7 @@ dataSources:
     source:
       address: "0xEbff181c2c7237A30a3Bc597375a9e94fDDE247a"
       abi: MegaShapeShifters
-      startBlock: 1006140
+      startBlock: 10068927
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
