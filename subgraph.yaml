@@ -1,0 +1,90 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: ReptileArmoury
+    network: rinkeby
+    source:
+      address: "0xE449ab0c30923978d7b9Ea0cEa3BC8BA12b2ee6C"
+      abi: ReptileArmoury
+      startBlock: 9803963
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Armoury
+        - Owner
+      abis:
+        - name: ReptileArmoury
+          file: ./abis/ReptileArmoury.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleArmouryTransfer
+      file: ./src/mapping.ts
+  - kind: ethereum
+    name: Creepz
+    network: rinkeby
+    source:
+      address: "0x4B0c3D3732BAE03d5B888405690dB3a084b0D689"
+      abi: Creepz
+      startBlock: 9983996
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Creep
+        - Owner
+      abis:
+        - name: Creepz
+          file: ./abis/Creepz.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleCreepzTransfer
+      file: ./src/mapping.ts
+  - kind: ethereum
+    name: ShapeShifters
+    network: rinkeby
+    source:
+      address: "0x68537C77a4b2F573eC84435AB011dae8B8dCe49E"
+      abi: ShapeShifters
+      startBlock: 10052603
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - ShapeShifter
+        - Owner
+      abis:
+        - name: ShapeShifters
+          file: ./abis/ShapeShifters.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleShapeShifterTransfer
+      file: ./src/mapping.ts
+  - kind: ethereum
+    name: MegaShapeShifters
+    network: rinkeby
+    source:
+      address: "0xcEa0758b473934c7753C1b23Cf2b5eE2DDDBEbC1"
+      abi: MegaShapeShifters
+      startBlock: 1006140
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - MegaShapeShifter
+        - Owner
+      abis:
+        - name: MegaShapeShifters
+          file: ./abis/MegaShapeShifters.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: TokensMinted(indexed address,indexed uint256,uint256)
+          handler: handleMegaShapeShiftersMinted
+      file: ./src/mapping.ts

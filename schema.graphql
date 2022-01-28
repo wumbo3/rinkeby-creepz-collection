@@ -1,0 +1,36 @@
+type Armoury @entity {
+  id: ID!
+  contentURI: String!
+  createdAtTimestamp: BigInt!
+  armouryOwner: Owner!
+}
+
+type Creep @entity {
+  id: ID!
+  contentURI: String!
+  createdAtTimestamp: BigInt!
+  creepOwner: Owner!
+}
+
+type ShapeShifter @entity {
+  id: ID!
+  contentURI: String!
+  createdAtTimestamp: BigInt!
+  shapeShifterOwner: Owner!
+}
+
+type MegaShapeShifter @entity {
+  id: ID!
+  type: Int!
+  contentURI: String!
+  createdAtTimestamp: BigInt!
+  megaShapeShifterOwner: Owner!
+}
+
+type Owner @entity {
+  id: ID!
+  creeps: [Creep!] @derivedFrom(field: "creepOwner")
+  shapeshifters: [ShapeShifter!] @derivedFrom(field: "shapeShifterOwner")
+  armouries: [Armoury!] @derivedFrom(field: "armouryOwner")
+  megaShapeShifters: [MegaShapeShifter!] @derivedFrom(field: "megaShapeShifterOwner")
+}
