@@ -69,7 +69,7 @@ dataSources:
     name: MegaShapeShifters
     network: rinkeby
     source:
-      address: "0xcEa0758b473934c7753C1b23Cf2b5eE2DDDBEbC1"
+      address: "0xEbff181c2c7237A30a3Bc597375a9e94fDDE247a"
       abi: MegaShapeShifters
       startBlock: 1006140
     mapping:
@@ -84,7 +84,7 @@ dataSources:
           file: ./abis/MegaShapeShifters.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,indexed uint256)
-          handler: handleTransfer
+          handler: handleMegaShapeShifterTransfer
         - event: TokensMinted(indexed address,indexed uint256,uint256)
           handler: handleMegaShapeShiftersMinted
       file: ./src/mapping.ts
